@@ -4,7 +4,7 @@ const count = Number(process.argv[2]);
 let names = [];
 let carBrands = [];
 
-fs.readFile('./src/names.txt', 'utf8', (err, data) => {
+fs.readFile('./names.txt', 'utf8', (err, data) => {
     if (err) {
         console.error(err);
         return;
@@ -13,7 +13,7 @@ fs.readFile('./src/names.txt', 'utf8', (err, data) => {
     names = data.split("\n").map(s => s.trim()).filter(n => n.length !== 0);
     console.log("Imiona:", names);
 
-    fs.readFile('./lab01/car-brands.txt', 'utf8', (err, data) => {
+    fs.readFile('./car-brands.txt', 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             return;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { data } from '../module-data.js'; 
+import { data } from './module-data.js'; 
 import PersonProfile from './Components/PersonProfile'; 
 import viteLogo from '/vite.svg'; 
 import reactLogo from './assets/react.svg';
