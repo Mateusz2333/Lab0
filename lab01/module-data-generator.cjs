@@ -1,78 +1,45 @@
 const fs = require('fs');
+const path = require('path');
 
-const count = Number(process.argv[2]);
-let names = [];
-let carBrands = [];
 
-fs.readFile('./names.txt', 'utf8', (err, data) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
+const namesFilePath = path.join(__dirname, 'names.txt');
+const carBrandsFilePath = path.join(__dirname, 'car-brands.txt');
 
-    names = data.split("\n").map(s => s.trim()).filter(n => n.length !== 0);
-    console.log("Imiona:", names);
 
-    fs.readFile('./car-brands.txt', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
+const birthDates = ['2000-01-01', '1995-05-05', '1990-10-10'];
+const eyeColors = ['blue', 'green', 'brown'];
+const registrations = ['AB1234', 'CD5678', 'EF9012'];
 
-        carBrands = data.split("\n").map(s => s.trim()).filter(n => n.length !== 0);
-        console.log("Marki samochodów:", carBrands);
+const generateData = (number) => {
+  
+  const names = fs.readFileSync(namesFilePath, 'utf-8').split('\n').map(name => name.trim()).filter(name => name);
+  const carBrands = fs.readFileSync(carBrandsFilePath, 'utf-8').split('\n').map(brand => brand.trim()).filter(brand => brand);
+  
+  
+  const generatedData = [];
+  for (let i = 0; i < number; i++) {
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomCarBrand = carBrands[Math.floor(Math.random() * carBrands.length)];
+    const randomBirthDate = birthDates[Math.floor(Math.random() * birthDates.length)];
+    const randomEyeColor = eyeColors[Math.floor(Math.random() * eyeColors.length)];
+    const randomRegistration = registrations[Math.floor(Math.random() * registrations.length)];
 
-        let content = "export const data = [\n";
-
-        for (let i = 0; i < count; i++) {
-            const name = names[Math.floor(Math.random() * names.length)];
-
-            const birthDate = new Date(
-                Math.floor(Math.random() * (2005 - 1950 + 1)) + 1950,
-                Math.floor(Math.random() * 12),
-                Math.floor(Math.random() * 28) + 1
-            ).toISOString().split('T')[0];
-
-            const eyeColors = ['niebieski', 'brązowy', 'zielony', 'orzechowy'];
-            const eyes = eyeColors[Math.floor(Math.random() * eyeColors.length)];
-
-            const registrationNumber =
-                `${String.fromCharCode(65 + Math.floor(Math.random() * 26))}${String.fromCharCode(65 + Math.floor(Math.random() * 26))}${String.fromCharCode(65 + Math.floor(Math.random() * 26))}${Math.floor(Math.random() * 9000) + 1000}`;
-
-            const person = {
-                id: i + 1,
-                name: name,
-                birth: birthDate,
-                eyes: eyes,
-                registration: registrationNumber
-            };
-
-            content += `  ${JSON.stringify(person)},\n`;
-        }
-
-        for (let i = 0; i < count; i++) {
-            const brand = carBrands[Math.floor(Math.random() * carBrands.length)];
-            const model = `Model${Math.floor(Math.random() * 100) + 1}`;
-            const year = Math.floor(Math.random() * (2024 - 2000 + 1)) + 2000;
-
-            const car = {
-                id: count + i + 1,
-                brand: brand,
-                model: model,
-                year: year
-            };
-
-            content += `  ${JSON.stringify(car)},\n`;
-        }
-
-        content += "];\n";
-
-        fs.writeFile('./module-data.js', content, (err) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log("module-data.js wygenerowany");
-        });
+    generatedData.push({ 
+      id: i, 
+      name: randomName, 
+      car: randomCarBrand,
+      birth: randomBirthDate,
+      eyes: randomEyeColor,
+      registration: randomRegistration
     });
-});
+  }
+
+  
+  const outputFilePath = path.join(__dirname, 'module-data.js');
+  fs.writeFileSync(outputFilePath, `export const data = ${JSON.stringify(generatedData, null, 2)};`);
+  
+  console.log('Dane zostały wygenerowane i zapisane w module-data.js');
+};
+
+const number = process.argv[2] || 10;
+generateData(number);

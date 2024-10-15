@@ -1,22 +1,82 @@
 export const data = [
-  {"id":1,"name":"Anna","birth":"1987-08-21","eyes":"zielony","registration":"ASP8905"},
-  {"id":2,"name":"Ewelina","birth":"1981-03-16","eyes":"zielony","registration":"WWA2951"},
-  {"id":3,"name":"Tomasz","birth":"1950-11-03","eyes":"zielony","registration":"WJU4898"},
-  {"id":4,"name":"Adam","birth":"1962-06-30","eyes":"zielony","registration":"XKK2044"},
-  {"id":5,"name":"Katarzyna","birth":"1980-01-27","eyes":"zielony","registration":"CWS1092"},
-  {"id":6,"name":"Anna","birth":"1994-09-04","eyes":"brązowy","registration":"UFM1837"},
-  {"id":7,"name":"Adam","birth":"1994-10-16","eyes":"orzechowy","registration":"JFB1434"},
-  {"id":8,"name":"Anna","birth":"1982-03-16","eyes":"brązowy","registration":"CBI1535"},
-  {"id":9,"name":"Julia","birth":"1974-01-15","eyes":"zielony","registration":"HZQ3384"},
-  {"id":10,"name":"Ewelina","birth":"1976-01-27","eyes":"brązowy","registration":"EJL8474"},
-  {"id":11,"brand":"Kia","model":"Model2","year":2024},
-  {"id":12,"brand":"Mercedes","model":"Model78","year":2007},
-  {"id":13,"brand":"Volkswagen","model":"Model36","year":2003},
-  {"id":14,"brand":"Nissan","model":"Model96","year":2002},
-  {"id":15,"brand":"Kia","model":"Model69","year":2000},
-  {"id":16,"brand":"Honda","model":"Model68","year":2021},
-  {"id":17,"brand":"Nissan","model":"Model29","year":2008},
-  {"id":18,"brand":"Nissan","model":"Model64","year":2000},
-  {"id":19,"brand":"Ford","model":"Model51","year":2021},
-  {"id":20,"brand":"Toyota","model":"Model50","year":2011},
+  {
+    "id": 0,
+    "name": "Anna",
+    "car": "Kia",
+    "birth": "2000-01-01",
+    "eyes": "green",
+    "registration": "EF9012"
+  },
+  {
+    "id": 1,
+    "name": "Adam",
+    "car": "Peugeot",
+    "birth": "2000-01-01",
+    "eyes": "green",
+    "registration": "EF9012"
+  },
+  {
+    "id": 2,
+    "name": "Katarzyna",
+    "car": "Audi",
+    "birth": "1990-10-10",
+    "eyes": "green",
+    "registration": "EF9012"
+  },
+  {
+    "id": 3,
+    "name": "Ewelina",
+    "car": "Volkswagen",
+    "birth": "2000-01-01",
+    "eyes": "green",
+    "registration": "AB1234"
+  },
+  {
+    "id": 4,
+    "name": "Julia",
+    "car": "Peugeot",
+    "birth": "2000-01-01",
+    "eyes": "brown",
+    "registration": "CD5678"
+  },
+  {
+    "id": 5,
+    "name": "Monika",
+    "car": "Ford",
+    "birth": "2000-01-01",
+    "eyes": "blue",
+    "registration": "EF9012"
+  },
+  {
+    "id": 6,
+    "name": "Ewelina",
+    "car": "Mercedes",
+    "birth": "1990-10-10",
+    "eyes": "green",
+    "registration": "CD5678"
+  },
+  {
+    "id": 7,
+    "name": "Tomasz",
+    "car": "Mercedes",
+    "birth": "1990-10-10",
+    "eyes": "green",
+    "registration": "EF9012"
+  },
+  {
+    "id": 8,
+    "name": "Piotr",
+    "car": "Peugeot",
+    "birth": "1990-10-10",
+    "eyes": "blue",
+    "registration": "AB1234"
+  },
+  {
+    "id": 9,
+    "name": "Adam",
+    "car": "Peugeot",
+    "birth": "1995-05-05",
+    "eyes": "blue",
+    "registration": "CD5678"
+  }
 ];
