@@ -67,7 +67,7 @@ fs.readFile('./names.txt', 'utf8', (err, data) => {
 
         content += "];\n";
 
-        fs.writeFile('./src/module-data.js', content, (err) => {
+        fs.writeFile('./module-data.js', content, (err) => {
             if (err) {
                 console.error(err);
                 return;
