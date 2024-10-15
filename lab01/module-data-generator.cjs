@@ -1,36 +1,29 @@
-
 const fs = require('fs');
 
 const count = Number(process.argv[2]);
 let names = [];
 let carBrands = [];
 
-
-fs.readFile('./names.txt', 'utf8', (err, data) => {
+fs.readFile('./src/names.txt', 'utf8', (err, data) => {
     if (err) {
         console.error(err);
         return;
     }
 
-   
     names = data.split("\n").map(s => s.trim()).filter(n => n.length !== 0);
     console.log("Imiona:", names);
 
-    
-    fs.readFile('./car-brands.txt', 'utf8', (err, data) => {
+    fs.readFile('./lab01/car-brands.txt', 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             return;
         }
 
-        
         carBrands = data.split("\n").map(s => s.trim()).filter(n => n.length !== 0);
         console.log("Marki samochodów:", carBrands);
 
-        
         let content = "export const data = [\n";
 
-        
         for (let i = 0; i < count; i++) {
             const name = names[Math.floor(Math.random() * names.length)];
 
@@ -57,7 +50,6 @@ fs.readFile('./names.txt', 'utf8', (err, data) => {
             content += `  ${JSON.stringify(person)},\n`;
         }
 
-        
         for (let i = 0; i < count; i++) {
             const brand = carBrands[Math.floor(Math.random() * carBrands.length)];
             const model = `Model${Math.floor(Math.random() * 100) + 1}`;
@@ -75,8 +67,7 @@ fs.readFile('./names.txt', 'utf8', (err, data) => {
 
         content += "];\n";
 
-        
-        fs.writeFile('module-data.js', content, (err) => {
+        fs.writeFile('./src/module-data.js', content, (err) => {
             if (err) {
                 console.error(err);
                 return;
