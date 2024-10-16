@@ -1,6 +1,6 @@
 import React from 'react';
 import { data } from '../module-data.js'; 
-import PersonProfile from './Components/PersonProfile'; 
+import PersonProfile from './components/PersonProfile'; 
 import viteLogo from '/vite.svg'; 
 import reactLogo from './assets/react.svg';
 import 'bootstrap/dist/css/bootstrap.css';
