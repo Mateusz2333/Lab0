@@ -1,6 +1,12 @@
-import React from 'react';
-import { data } from '../module-data.js'; 
-import PersonProfile from './Components/PersonProfile'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RootLayout from './layouts/RootLayout.jsx'; 
+import HomePage from './pages/HomePage.jsx'; 
+import Home from './pages/Home.jsx'
+import Laboratorium1 from './pages/Laboratorium1.jsx'; 
+import Laboratorium2 from './pages/Laboratorium2.jsx'; 
+
+import { data } from './data/module-data.js';  
+import PersonProfile from './components/PersonProfile.jsx'; 
 import viteLogo from '/vite.svg'; 
 import reactLogo from './assets/react.svg';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,29 +14,16 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      
-      <div>
-        {data
-          .filter(person => person.name && person.birth && person.eyes && person.registration) 
-          .map((person) => (
-            <PersonProfile key={person.id} person={person} />
-          ))
-        }
-      </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Router>
+      <RootLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Home />} /> 
+          <Route path="/lab1" element={<Laboratorium1 />} />
+          <Route path="/lab2" element={<Laboratorium2 />} />
+        </Routes>
+      </RootLayout>
+    </Router>
   );
 }
 
