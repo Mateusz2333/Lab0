@@ -12,6 +12,7 @@ const NavBarMenu = () => {
           <Nav.Link as={Link} to="/Home">Home</Nav.Link>
           <Nav.Link as={Link} to="/lab1">Laboratorium 1</Nav.Link>
           <Nav.Link as={Link} to="/lab2">Laboratorium 2</Nav.Link>
+          
         </Nav>
       </Navbar.Collapse>
     </Navbar>

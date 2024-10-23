@@ -7,7 +7,7 @@ const carBrandsFilePath = path.join(__dirname, 'car-brands.txt');
 
 
 const birthDates = ['2000-01-01', '1995-05-05', '1990-10-10'];
-const eyeColors = ['blue', 'green', 'brown'];
+const eyeColors = ['Niebieski', 'Zielony', 'Brązowy'];
 const registrations = ['AB1234', 'CD5678', 'EF9012'];
 
 const generateData = (number) => {

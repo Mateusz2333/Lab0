@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage.jsx';
 import Home from './pages/Home.jsx'
 import Laboratorium1 from './pages/Laboratorium1.jsx'; 
 import Laboratorium2 from './pages/Laboratorium2.jsx'; 
+import wseiLogo from '/images.png';
+
 
 import { data } from './data/module-data.js';  
 import PersonProfile from './components/PersonProfile.jsx'; 

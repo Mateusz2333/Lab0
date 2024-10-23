@@ -6,7 +6,7 @@ export const data = [
     {"id":5,"name":"Piotr","birth":"1988-04-10","eyes":"niebieski","registration":"MNO6789"},
     {"id":6,"name":"Katarzyna","birth":"2000-02-28","eyes":"zielony","registration":"PQR3456"},
     {"id":7,"name":"Tomasz","birth":"1955-06-19","eyes":"brązowy","registration":"STU7890"},
-    {"id":8,"name":"Anna","birth":"1982-07-07","eyes":"orzechowy","registration":"VWX1234"},
+    {"id":8,"name":"Anna","birth":"1982-07-07","eyes":"niebieski","registration":"VWX1234"},
     {"id":9,"name":"Adam","birth":"1960-10-14","eyes":"niebieski","registration":"YZA5678"},
     {"id":10,"name":"Stanisław","birth":"1978-01-02","eyes":"zielony","registration":"BCD9012"},
 ];
