@@ -16,10 +16,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'; 
 
 const menuItems = [
-  { id: 1, label: "Strona Główna", url: "/", element: <HomePage /> },  
-  { id: 2, label: "Home", url: "/home", element: <Home /> },  
-  { id: 3, label: "Laboratorium 1", url: "/lab1", element: <Laboratorium1 /> },
-  { id: 4, label: "Laboratorium 2", url: "/lab2", element: <Laboratorium2 /> },
+  { id: 1, label: "Strona Główna", url: "/", urlPattern: "/", element: <HomePage /> },  
+  { id: 2, label: "Home", url: "/home", urlPattern: "/home", element: <Home /> },  
+  { id: 3, label: "Laboratorium 1", url: "/lab1", urlPattern:"/lab1", element: <Laboratorium1 /> },
+  { id: 4, label: "Laboratorium 2", url: "/lab2", urlPattern:"lab2", element: <Laboratorium2 /> },
+  
 ];
 
 function App() {
@@ -27,15 +28,15 @@ function App() {
     <>
       <RootLayout items={menuItems}>
         <Routes>
-          <Route path="/" element={<HomePage />} />  
-          <Route path="/home" element={<Home />} />  
-          <Route path="/lab1" element={<Laboratorium1 />} />
-          <Route path="/lab2" element={<Laboratorium2 />} />
-          <Route path="/*" element={<NotFound />} />  
+          {menuItems.map((item) => (
+            <Route key={item.id} path={item.urlPattern} element={item.element} />
+          ))}
+          <Route path="/*" element={<NotFound />} /> 
         </Routes>
       </RootLayout>
     </>
   );
 }
+
 
 export default App;
