@@ -19,7 +19,7 @@ const menuItems = [
   { id: 1, label: "Strona Główna", url: "/", urlPattern: "/", element: <HomePage /> },  
   { id: 2, label: "Home", url: "/home", urlPattern: "/home", element: <Home /> },  
   { id: 3, label: "Laboratorium 1", url: "/lab1", urlPattern:"/lab1", element: <Laboratorium1 /> },
-  { id: 4, label: "Laboratorium 2", url: "/lab2", urlPattern:"lab2", element: <Laboratorium2 /> },
+  { id: 4, label: "Laboratorium 2", url: "/lab2/1", urlPattern:"/lab2/:id", element: <Laboratorium2 /> },
   
 ];
 

@@ -8,7 +8,7 @@ function Footer() {
       </div>
       <div>
         <p>© 2024 WSEI Kraków</p>
-        <p>Email: twoj-email@example.com</p>
+        <p>Email: Mateusz.Nowak1@microsoft.wsei.edu.pl</p>
       </div>
     </footer>
   );
