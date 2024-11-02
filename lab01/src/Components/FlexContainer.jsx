@@ -1,17 +1,16 @@
-// components/FlexContainer.jsx
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const FlexContainer = ({ element: Element, data }) => {
-  return (
-    <Row className="g-3">
-      {data.map((item) => (
-        <Col xs={12} sm={6} md={4} lg={3} key={item.id}>
-          <Element {...item} /> 
-        </Col>
-      ))}
-    </Row>
-  );
-};
+const FlexContainer = ({ element: Element, data }) => (
+    <Container>
+        <Row className="gy-4">
+            {data.map((item, index) => (
+                <Col key={index} xs={12} sm={6} md={4} lg={3}>
+                    <Element {...item} />
+                </Col>
+            ))}
+        </Row>
+    </Container>
+);
 
 export default FlexContainer;
