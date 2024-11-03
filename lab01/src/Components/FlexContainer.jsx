@@ -1,4 +1,5 @@
 import React from 'react';
+import AppReducer from '../data/AppReducer'
 
 function FlexContainer({ element: Element, data }) {
     return (
