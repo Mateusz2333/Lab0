@@ -1,82 +1,82 @@
 export const data = [
   {
     "id": 0,
-    "name": "Stanisław",
-    "car": "Peugeot",
-    "birth": "1995-05-05",
-    "eyes": "Niebieski",
-    "registration": "CD5678"
-  },
-  {
-    "id": 1,
-    "name": "Karol",
-    "car": "Ford",
-    "birth": "1995-05-05",
-    "eyes": "Niebieski",
-    "registration": "AB1234"
-  },
-  {
-    "id": 2,
-    "name": "Adam",
-    "car": "Ford",
+    "name": "Julia",
+    "car": "Volkswagen",
     "birth": "2000-01-01",
     "eyes": "Brązowy",
     "registration": "EF9012"
   },
   {
-    "id": 3,
-    "name": "Adam",
-    "car": "Peugeot",
+    "id": 1,
+    "name": "Anna",
+    "car": "Honda",
     "birth": "1990-10-10",
     "eyes": "Niebieski",
     "registration": "EF9012"
   },
   {
-    "id": 4,
-    "name": "Karol",
-    "car": "Honda",
-    "birth": "1990-10-10",
+    "id": 2,
+    "name": "Adam",
+    "car": "BMW",
+    "birth": "1995-05-05",
+    "eyes": "Zielony",
+    "registration": "AB1234"
+  },
+  {
+    "id": 3,
+    "name": "Katarzyna",
+    "car": "Toyota",
+    "birth": "1995-05-05",
     "eyes": "Niebieski",
+    "registration": "AB1234"
+  },
+  {
+    "id": 4,
+    "name": "Katarzyna",
+    "car": "Mercedes",
+    "birth": "1995-05-05",
+    "eyes": "Zielony",
     "registration": "AB1234"
   },
   {
     "id": 5,
-    "name": "Monika",
+    "name": "Karol",
     "car": "Nissan",
-    "birth": "1995-05-05",
-    "eyes": "Niebieski",
-    "registration": "AB1234"
+    "birth": "1990-10-10",
+    "eyes": "Zielony",
+    "registration": "CD5678"
   },
   {
     "id": 6,
-    "name": "Tomasz",
-    "car": "Nissan",
-    "birth": "1995-05-05",
-    "eyes": "Niebieski",
+    "name": "Monika",
+    "car": "Ford",
+    "birth": "2000-01-01",
+    "eyes": "Zielony",
     "registration": "CD5678"
   },
   {
     "id": 7,
-    "name": "Stanisław",
-    "car": "Volkswagen",
+    "name": "Adam",
+    "car": "Ford",
+    "birth": "2000-01-01",
+    "eyes": "Brązowy",
+    "registration": "CD5678"
+  },
+  {
+    "id": 8,
+    "name": "Anna",
+    "car": "Peugeot",
     "birth": "1990-10-10",
     "eyes": "Brązowy",
     "registration": "AB1234"
   },
   {
-    "id": 8,
-    "name": "Adam",
-    "car": "Nissan",
-    "birth": "1990-10-10",
-    "eyes": "Brązowy",
-    "registration": "CD5678"
-  },
-  {
     "id": 9,
-    "name": "Monika",
-    "car": "Toyota",
-    "birth": "1990-10-10",
+    "name": "Katarzyna",
+    "car": "BMW",
+    "birth": "1995-05-05",
     "eyes": "Zielony",
-    "registration": "CD5678"
+    "registration": "AB1234"
   }
 ];
