@@ -1,5 +1,3 @@
-// Lab3Page.jsx
-
 import React, { useReducer } from 'react';
 import FlexContainer from '../components/FlexContainer';
 import AppReducer from '../data/AppReducer';
