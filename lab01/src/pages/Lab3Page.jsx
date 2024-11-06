@@ -4,6 +4,7 @@ import AppReducer from '../data/AppReducer';
 import { data } from '../data/module-data';
 import RatingBar from '../components/RatingBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AppContext from '../data/AppContext';
 
 const Item = ({ name, rating, id, dispatch }) => (
     <div className="border mb-3 p-3" style={{ width: '18rem' }} key={id}>
