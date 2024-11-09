@@ -1,82 +1,82 @@
 export const data = [
   {
     "id": 0,
-    "name": "Piotr",
-    "car": "Peugeot",
+    "name": "Katarzyna",
+    "car": "Kia",
     "birth": "2000-01-01",
-    "eyes": "Brązowy",
+    "eyes": "Niebieski",
     "registration": "EF9012"
   },
   {
     "id": 1,
-    "name": "Julia",
-    "car": "Nissan",
-    "birth": "1990-10-10",
+    "name": "Monika",
+    "car": "Toyota",
+    "birth": "1995-05-05",
     "eyes": "Niebieski",
-    "registration": "CD5678"
+    "registration": "EF9012"
   },
   {
     "id": 2,
-    "name": "Julia",
-    "car": "Nissan",
-    "birth": "1990-10-10",
-    "eyes": "Niebieski",
-    "registration": "AB1234"
+    "name": "Anna",
+    "car": "Peugeot",
+    "birth": "2000-01-01",
+    "eyes": "Zielony",
+    "registration": "CD5678"
   },
   {
     "id": 3,
-    "name": "Monika",
-    "car": "Volkswagen",
-    "birth": "2000-01-01",
-    "eyes": "Brązowy",
-    "registration": "CD5678"
+    "name": "Julia",
+    "car": "Nissan",
+    "birth": "1990-10-10",
+    "eyes": "Zielony",
+    "registration": "AB1234"
   },
   {
     "id": 4,
     "name": "Tomasz",
-    "car": "Honda",
+    "car": "BMW",
     "birth": "2000-01-01",
     "eyes": "Zielony",
-    "registration": "AB1234"
+    "registration": "EF9012"
   },
   {
     "id": 5,
-    "name": "Julia",
-    "car": "Volkswagen",
-    "birth": "2000-01-01",
-    "eyes": "Brązowy",
+    "name": "Tomasz",
+    "car": "Ford",
+    "birth": "1995-05-05",
+    "eyes": "Zielony",
     "registration": "CD5678"
   },
   {
     "id": 6,
-    "name": "Julia",
-    "car": "Honda",
-    "birth": "1990-10-10",
+    "name": "Katarzyna",
+    "car": "Audi",
+    "birth": "2000-01-01",
     "eyes": "Zielony",
-    "registration": "AB1234"
+    "registration": "CD5678"
   },
   {
     "id": 7,
-    "name": "Anna",
-    "car": "Volkswagen",
+    "name": "Adam",
+    "car": "Toyota",
     "birth": "2000-01-01",
-    "eyes": "Brązowy",
+    "eyes": "Niebieski",
     "registration": "EF9012"
   },
   {
     "id": 8,
-    "name": "Stanisław",
-    "car": "Honda",
-    "birth": "1995-05-05",
-    "eyes": "Niebieski",
-    "registration": "AB1234"
+    "name": "Julia",
+    "car": "Ford",
+    "birth": "2000-01-01",
+    "eyes": "Zielony",
+    "registration": "CD5678"
   },
   {
     "id": 9,
-    "name": "Katarzyna",
-    "car": "Volkswagen",
+    "name": "Adam",
+    "car": "Peugeot",
     "birth": "1990-10-10",
-    "eyes": "Niebieski",
-    "registration": "EF9012"
+    "eyes": "Zielony",
+    "registration": "AB1234"
   }
 ];
