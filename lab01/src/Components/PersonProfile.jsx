@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Card, Button } from 'react-bootstrap';
+import AppContext from '../data/AppContext';
 import RatingBar from './RatingBar';
 
-const PersonProfile = ({ person }) => {
-    return (
-        <div>
-            <h2>{person.name}</h2>
-            <p>Data urodzenia: {person.birth}</p>
-            <p>Kolor oczu: {person.eyes}</p>
-            <p>Numer rejestracyjny: {person.registration}</p>
-            <RatingBar rate={person.rating} /> 
+function PersonProfile({ name, id, rating }) {
+  
+  const { dispatch } = useContext(AppContext);
+
+  return (
+    <Card style={{ width: '18rem' }} className="m-1">
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>Ocena: {rating}</Card.Text>
+        <RatingBar rate={rating} />
+        <div className="d-flex justify-content-between mt-3">
+          <Button
+            variant="primary"
+            onClick={() => dispatch({ type: 'edit', id })}
+          >
+            Edit
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => dispatch({ type: 'delete', id })}
+          >
+            Delete
+          </Button>
+          <Button
+            variant="success"
+            onClick={() => dispatch({ type: 'rate', id, rating })}
+          >
+            Rate
+          </Button>
         </div>
-    );
-};
+      </Card.Body>
+    </Card>
+  );
+}
 
 export default PersonProfile;
