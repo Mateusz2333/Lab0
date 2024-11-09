@@ -1,8 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useContext } from 'react';
 import FlexContainer from '../components/FlexContainer';
 import AppReducer from '../data/AppReducer';
 import { data } from '../data/module-data';
 import RatingBar from '../components/RatingBar';
+import AppContext from '../data/AppContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Item = ({ name, rating, id, dispatch }) => (
@@ -34,14 +35,14 @@ const Item = ({ name, rating, id, dispatch }) => (
 );
 
 function Lab3Page() {
-    const [state, dispatch] = useReducer(AppReducer, data.map(person => ({ ...person, rating: 0 })));
+    const { items, dispatch } = useContext(AppContext);
 
     return (
         <div className="container my-4">
             <h1>Laboratorium 3</h1>
             <FlexContainer
                 element={Item}
-                data={state.map((item) => ({
+                data={items.map((item) => ({
                     ...item,
                     dispatch
                 }))}
