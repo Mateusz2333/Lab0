@@ -1,10 +1,12 @@
-import React from 'react';
-import AppReducer from '../data/AppReducer'
+import React, { useContext } from 'react';
+import AppContext from '../data/AppContext';
 
-function FlexContainer({ element: Element, data }) {
+function FlexContainer({ element: Element }) {
+    const { items } = useContext(AppContext); 
+
     return (
         <div className="d-flex flex-wrap">
-            {data.map((item) => (
+            {items.map((item) => (
                 <Element key={item.id} {...item} />
             ))}
         </div>
