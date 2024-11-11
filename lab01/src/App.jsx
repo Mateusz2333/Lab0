@@ -11,6 +11,8 @@ import NotFound from './pages/NotFound';
 import React, { useReducer } from 'react';
 import AppContext from './data/AppContext.js';
 import AppReducer from './data/AppReducer.js';
+import AddForm from './pages/AddForm.jsx';
+import EditForm from './pages/EditForm.jsx';
 
 
 import { data } from './data/module-data.js';  
@@ -43,6 +45,8 @@ function App() {
           ))}
           <Route path="/lab2" element={<Laboratorium2 />} />
           <Route path="/*" element={<NotFound />} />
+          <Route path="/lab4/add" element={<AddForm />} />
+          <Route path="/lab4/edit/:id" element={<EditForm />} />
         </Routes>
       </RootLayout>
     </AppContext.Provider>
