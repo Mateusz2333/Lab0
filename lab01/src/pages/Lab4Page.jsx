@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import AppContext from "../data/AppContext";
+import useData from "../data/useData";
+import useDispatch from "../data/useDispatch";
 
 function Lab4Page() {
-  const { items } = useContext(AppContext);
+  const items = useData();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleAddClick = () => {

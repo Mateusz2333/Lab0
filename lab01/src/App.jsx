@@ -7,12 +7,10 @@ import Laboratorium2 from './pages/Laboratorium2.jsx';
 import Lab3Page from './pages/Lab3Page.jsx';
 import Lab4Page from './pages/Lab4Page.jsx';
 import wseiLogo from '/images.png';
-import NotFound from './pages/NotFound';
-import React, { useReducer } from 'react';
-import AppContext from './data/AppContext.js';
-import AppReducer from './data/AppReducer.js';
+import NotFound from './pages/NotFound'
 import AddForm from './pages/AddForm.jsx';
 import EditForm from './pages/EditForm.jsx';
+import AppProvider from './pages/AppProvider.jsx';
 
 
 import { data } from './data/module-data.js';  
@@ -33,11 +31,8 @@ const menuItems = [
 ];
 
 function App() {
-  const [state, appDispatch] = useReducer(AppReducer, data);
-
   return (
-    
-    <AppContext.Provider value={{ items: state, dispatch: appDispatch }}>
+    <AppProvider>
       <RootLayout items={menuItems}>
         <Routes>
           {menuItems.map((item) => (
@@ -49,7 +44,7 @@ function App() {
           <Route path="/lab4/edit/:id" element={<EditForm />} />
         </Routes>
       </RootLayout>
-    </AppContext.Provider>
+    </AppProvider>
   );
 }
 
