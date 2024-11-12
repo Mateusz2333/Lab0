@@ -19,6 +19,7 @@ import viteLogo from '/vite.svg';
 import reactLogo from './assets/react.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'; 
+import Lab5Page from './pages/Lab5Page.jsx';
 
 
 const menuItems = [
@@ -28,6 +29,7 @@ const menuItems = [
   { id: 4, label: "Laboratorium 2", url: "/lab2/:id", urlPattern: "/lab2/:id", element: <Laboratorium2 /> },
   { id: 5, label: "Laboratorium 3", url: "/lab3", urlPattern: "/lab3", element: <Lab3Page /> },
   { id: 6, label: "Laboratorium 4", url: "/lab4", urlPattern: "/lab4", element: <Lab4Page />},
+  { id: 7, label: "Laboratorium 5", url: "/lab5", urlPattern: "/lab5", element: <Lab5Page />},
 ];
 
 function App() {
