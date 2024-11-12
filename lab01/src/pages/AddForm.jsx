@@ -26,8 +26,8 @@ function AddForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    dispatch({ type: 'add', item: { ...formData, id: Date.now() } });
-    navigate('/lab4');
+    dispatch({ type: 'add', item: { ...formData } });
+    navigate('/lab4'); // Przekierowanie do Lab4 po dodaniu
   };
 
   return (

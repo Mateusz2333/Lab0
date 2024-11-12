@@ -1,8 +1,9 @@
 export default function AppReducer(state, action) {
     switch (action.type) {
         case "edit":
-            alert(`Edytowanie osoby o id: ${action.id}`);
-            return state;
+            return state.map(item =>
+                item.id === action.item.id ? { ...item, ...action.item } : item
+            );
 
         case "delete":
             return state.filter(item => item.id !== action.id);
@@ -15,12 +16,8 @@ export default function AppReducer(state, action) {
             );
 
         case "add":
-            return [...state, action.item];
-
-        case "update":
-            return state.map(item =>
-                item.id === action.item.id ? { ...item, ...action.item } : item
-            );
+            const newId = state.length > 0 ? state[state.length - 1].id + 1 : 1;  
+            return [...state, { ...action.item, id: newId }];
 
         default:
             return state;

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import AppContext from '../data/AppContext';
 
@@ -7,60 +6,55 @@ function EditForm() {
   const { items, dispatch } = useContext(AppContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
-
-  const itemToEdit = items.find(item => item.id === Number(id));
+  const itemToEdit = items.find(item => item.id === parseInt(id));
+  const [formData, setFormData] = useState({ name: '', rating: '' });
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (itemToEdit) {
-      setValue("id", itemToEdit.id);
-      setValue("name", itemToEdit.name);
-      setValue("rating", itemToEdit.rating);
-    } else {
-      navigate('/lab4');
+      setFormData({ name: itemToEdit.name, rating: itemToEdit.rating });
     }
-  }, [itemToEdit, navigate, setValue]);
+  }, [itemToEdit]);
 
-  const onSubmit = (data) => {
-    dispatch({ type: 'update', item: { id: data.id, name: data.name, rating: Number(data.rating) } });
-    navigate('/lab4');
+  const validate = () => {
+    let tempErrors = {};
+    if (formData.name.length < 3) tempErrors.name = "Nazwa musi mieć co najmniej 3 znaki.";
+    if (!Number.isInteger(Number(formData.rating)) || formData.rating < 0 || formData.rating > 10)
+      tempErrors.rating = "Ocena musi być liczbą pomiędzy 0-10.";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    dispatch({ type: 'edit', item: { id: itemToEdit.id, ...formData } });
+    navigate('/lab4'); // Przekierowanie po edycji
+  };
+
+  if (!itemToEdit) return <p>Nie znaleziono obiektu do edycji.</p>;
 
   return (
     <div>
       <h1>Edytuj obiekt</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="hidden" {...register("id")} />
-
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Imie:</label>
-          <input
-            type="text"
-            {...register("name", { required: "Name is required", minLength: { value: 3, message: "Imię musi zawierać co najmniej 3 znaki." } })}
-          />
-          {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+          {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
         </div>
-
         <div>
           <label>Ocena:</label>
-          <input
-            type="number"
-            {...register("rating", {
-              required: "Rating is required",
-              min: { value: 0, message: "Ocena musi być co najmniej 0" },
-              max: { value: 10, message: "Ocena nie może przekroczyć 10" },
-              valueAsNumber: true
-            })}
-          />
-          {errors.rating && <p style={{ color: 'red' }}>{errors.rating.message}</p>}
+          <input type="number" name="rating" value={formData.rating} onChange={handleChange} required />
+          {errors.rating && <p style={{ color: 'red' }}>{errors.rating}</p>}
         </div>
-
-        <button type="submit">Zapisz</button>
+        <button type="submit">Zapisz zmiany</button>
       </form>
     </div>
   );
