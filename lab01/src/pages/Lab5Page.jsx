@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import useFetch from '../data/useFetch';
 import TableHeader from '../components/TableHeader';
+import { Link } from 'react-router-dom';
+import Accordion from '../components/Accordion';
 
 const tableDataReducer = (state, action) => {
     switch (action.type) {
@@ -28,13 +30,25 @@ function Lab5Page() {
     const [users] = useFetch("https://jsonplaceholder.typicode.com/users");
     const [comments] = useFetch("https://jsonplaceholder.typicode.com/comments");
 
-    const initialTableData = posts.map((p) => ({
+    const initialTableData = posts.length && users.length && comments.length ? posts.map((p) => ({
         user: users.find((u) => u.id === p.userId),
         post: p,
         comments: comments.filter((c) => c.postId === p.id),
-    }));
+    })) : [];
 
     const [tableData, dispatch] = useReducer(tableDataReducer, initialTableData);
+
+    
+    useEffect(() => {
+        if (posts.length && users.length && comments.length) {
+            const updatedTableData = posts.map((p) => ({
+                user: users.find((u) => u.id === p.userId),
+                post: p,
+                comments: comments.filter((c) => c.postId === p.id),
+            }));
+            dispatch({ type: 'RESET', payload: updatedTableData });
+        }
+    }, [posts, users, comments]); 
 
     const handleSort = (type, order) => {
         dispatch({ type, order, payload: initialTableData });
@@ -52,13 +66,24 @@ function Lab5Page() {
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((data, index) => (
+                    {tableData.length > 0 ? tableData.map((data, index) => (
                         <tr key={index}>
-                            <td>{data.user ? data.user.name : "Nieznany użytkownik"}</td>
+                            <td>
+                                {data.user ? (
+                                    <Link to={`/lab5/users/${data.user.id}`}>{data.user.name}</Link>
+                                ) : "Nieznany użytkownik"}
+                            </td>
                             <td>{data.post.title}</td>
-                            <td>{data.comments.length}</td>
+                            <td>
+                                <Link to={`/lab5/posts/${data.post.id}/comments`}>{data.comments.length}</Link>
+                            </td>
+                            <td>
+                                <Accordion title={data.post.title} content={data.post.body} />
+                            </td>
                         </tr>
-                    ))}
+                    )) : (
+                        <tr><td colSpan="4">Ładowanie danych...</td></tr>
+                    )}
                 </tbody>
             </table>
         </div>

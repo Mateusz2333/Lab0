@@ -1,14 +1,23 @@
-// useFetch.js
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 function useFetch(url) {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch(url)
-        .then((res) => res.json())
-        .then((data) => setData(data));
+            .then(response => response.json())
+            .then(json => {
+                setData(json);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching data: ", error);
+                setLoading(false);
+            });
     }, [url]);
-    return [data];
+
+    return [data, loading];
 }
 
 export default useFetch;

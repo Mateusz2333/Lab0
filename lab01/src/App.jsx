@@ -11,6 +11,9 @@ import NotFound from './pages/NotFound'
 import AddForm from './pages/AddForm.jsx';
 import EditForm from './pages/EditForm.jsx';
 import AppProvider from './pages/AppProvider.jsx';
+import Lab5Page from './pages/Lab5Page.jsx';
+import UserPage from './pages/UserPage.jsx';
+import CommentsPage from './pages/CommentsPage.jsx';
 
 
 import { data } from './data/module-data.js';  
@@ -19,7 +22,7 @@ import viteLogo from '/vite.svg';
 import reactLogo from './assets/react.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'; 
-import Lab5Page from './pages/Lab5Page.jsx';
+
 
 
 const menuItems = [
@@ -44,6 +47,9 @@ function App() {
           <Route path="/*" element={<NotFound />} />
           <Route path="/lab4/add" element={<AddForm />} />
           <Route path="/lab4/edit/:id" element={<EditForm />} />
+          <Route path="/lab5" element={<Lab5Page />} />
+          <Route path="/lab5/users/:id" element={<UserPage />} />
+          <Route path="/lab5/posts/:id/comments" element={<CommentsPage />} />
         </Routes>
       </RootLayout>
     </AppProvider>
